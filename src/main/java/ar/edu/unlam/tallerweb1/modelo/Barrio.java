@@ -1,12 +1,22 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 public class Barrio {
 
-	private String nombre;
 	@Id
-	private long id;
+	private Long id;
+	private String nombre;
+
+	public Barrio() {
+
+	}
+
+	public Barrio(String nombre) {
+		this.nombre = nombre;
+
+	}
 
 	public Long getId() {
 		return id;
@@ -24,8 +34,15 @@ public class Barrio {
 		this.nombre = nombre;
 	}
 
-	public Barrio(String nombre) {
-		this.setNombre(nombre);
+	@ManyToOne
+	private Comuna comuna;
+
+	public Comuna getComuna() {
+		return this.comuna;
+	}
+
+	public void setComuna(Comuna comuna) {
+		this.comuna = comuna;
 	}
 
 }

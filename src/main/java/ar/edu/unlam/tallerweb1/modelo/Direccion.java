@@ -12,6 +12,16 @@ public class Direccion {
 	private String calle;
 	private String numero;
 
+	public Direccion() {
+	}
+
+	public Direccion(String calle, String numero, Barrio barrio) {
+		this.calle = calle;
+		this.numero = numero;
+		this.barrio = barrio;
+
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -36,16 +46,13 @@ public class Direccion {
 		this.numero = numero;
 	}
 
-	@Override
-	public String toString() {
-		return "Direccion [id=" + id + ", calle=" + calle + ", numero=" + numero + "]";
-	}
-	
 	@ManyToOne
 	private Barrio barrio;
+
 	public Barrio getBarrio() {
 		return this.barrio;
 	}
+
 	public void setBarrio(Barrio barrio) {
 		this.barrio = barrio;
 	}

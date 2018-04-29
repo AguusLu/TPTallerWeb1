@@ -1,8 +1,9 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
+@Entity
 public class Barrio {
 
 	@Id

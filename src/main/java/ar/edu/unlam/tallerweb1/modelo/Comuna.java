@@ -3,9 +3,10 @@ package ar.edu.unlam.tallerweb1.modelo;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+@Entity
 public class Comuna {
 	@Id
 	private Long id;

@@ -1,7 +1,8 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
-
+@Entity
 public class Punto {
 	@Id
 	private Long id;

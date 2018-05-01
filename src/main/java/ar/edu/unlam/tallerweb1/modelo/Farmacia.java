@@ -1,24 +1,28 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Farmacia {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
-	private String numero;
-	private String diDelTurno;
+	private String telefono;
+	private String diaDeTurno;
 
 	public Farmacia() {
 
 	}
 
-	public Farmacia(String nombre, String numero) {
-		this.setNumero(numero);
-		this.setNombre(nombre);
+	public Farmacia(String nombre, String telefono, String diaDeTurno) {
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.diaDeTurno = diaDeTurno;
 	}
 
 	public Long getId() {
@@ -37,38 +41,38 @@ public class Farmacia {
 		this.nombre = nombre;
 	}
 
-	public String getNumero() {
-		return numero;
+	public String getTelefono() {
+		return telefono;
 	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
-	public String getDiDelTurno() {
-		return diDelTurno;
+	public String getDiaDeTurno() {
+		return diaDeTurno;
 	}
 
-	public void setDiDelTurno(String diDelTurno) {
-		this.diDelTurno = diDelTurno;
+	public void setDiaDeTurno(String diaDeTurno) {
+		this.diaDeTurno = diaDeTurno;
 	}
 
-	@OneToMany
+	@OneToOne
 	private Direccion direccion;
 
 	public Direccion getDireccion() {
-		return this.direccion;
+		return direccion;
 	}
 
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
 
-	@OneToMany
+	@OneToOne
 	private Punto geoLocalizacion;
 
 	public Punto getGeoLocalizacion() {
-		return this.geoLocalizacion;
+		return geoLocalizacion;
 	}
 
 	public void setGeoLocalizacion(Punto geoLocalizacion) {

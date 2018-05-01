@@ -51,7 +51,7 @@ public class Direccion {
 	private Barrio barrio;
 
 	public Barrio getBarrio() {
-		return this.barrio;
+		return barrio;
 	}
 
 	public void setBarrio(Barrio barrio) {

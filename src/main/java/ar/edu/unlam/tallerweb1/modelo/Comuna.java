@@ -1,20 +1,24 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 @Entity
 public class Comuna {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 
 	public Long getId() {
-		return this.id;
+		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -28,18 +32,18 @@ public class Comuna {
 	}
 
 	@OneToMany
-	private List<Barrio> barrios = new LinkedList<Barrio>();
+	private List<Barrio> barrios;
 
 	// Estoy agregando de a un barrio a la lista barrios (Variable nueva creada
 	// privada aca)
-	public void addBarrio(Barrio barrio) {
-		this.barrios.add(barrio);
+	public void addBarrio(Barrio barrioSelecionado) {
+		this.barrios.add(barrioSelecionado);
 
 	}
 
 	// Estoy obteniendo TODOS los barrios
 	public List<Barrio> getBarrios() {
-		return this.barrios;
+		return barrios;
 	}
 
 	// Estoy definiendo mi lista Barrios con los barrios cargados de la clase

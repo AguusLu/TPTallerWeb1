@@ -73,7 +73,7 @@ public class CargaDatosTest extends SpringTest {
 		Farmacia6.setDireccion(Direccion6);
 	}
 
-	// 2- Hacer con junit un test que busque todas las farmacias de turno los días
+	// 2- Hacer con junit un test que busque todas las farmacias de turno los dÃ­as
 	// martes.
 	@Test
 	@Transactional
@@ -99,6 +99,7 @@ public class CargaDatosTest extends SpringTest {
 		List<Farmacia> listaFarmacia;
 		listaFarmacia = session.createCriteria(Farmacia.class).createAlias("direccion", "direccionBuscada")
 				.add(Restrictions.eq("direccionBuscada.calle", "Machado")).list();
+		//primero es el atributo y despues el alias y en el siguiente inner el alias con la calle literal
 
 		assertThat(listaFarmacia.size()).isEqualTo(2);
 	}
